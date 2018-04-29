@@ -1,0 +1,39 @@
+<form class="well" (submit)="addTokhang($event)">
+      <div class="form-group">
+        <input type="text" [(ngModel)]="firstname" name="firstname" class="form-control" placeholder="firstname..."/> 
+        <input type="text" [(ngModel)]="lastname" name="lastname" class="form-control" placeholder="lastname..."/>  
+        <input type="submit" value="submit"/> 
+      </div>  
+</form>
+
+<div class="tokhang-list">
+    <div class="row">
+        <div class="col-md-1">
+            <p>is jailed</p>
+        </div>
+        <div class="col-md-4">
+            <p>First name</p>
+        </div>
+        <div class="col-md-4">
+            <p>Last name</p>
+        </div>
+        <div class="col-md-3">
+            <p></p>
+        </div>
+    </div>
+    <div class="row" *ngFor="let tokhang of tokhangs">
+        <div class="col-md-1">
+            <input type="checkbox" [checked]="tokhang.isjailed" (click)="updateStatus(tokhang)">
+        </div>
+        <div class="col-md-4">
+            {{tokhang.firstname}}    
+        </div> 
+        <div class="col-md-4">
+            {{tokhang.lastname}}    
+        </div> 
+        <div class="col-md-3">
+            <input type="button" (click)="deleteTokhang(tokhang._id)" value="Delete" class="btn btn-danger">    
+        </div>
+        <br><br>
+    </div>
+</div>

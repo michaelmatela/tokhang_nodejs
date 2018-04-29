@@ -3,7 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var tokhang = require('./routes/tokhang');
+var tokhangs = require('./routes/tokhangs');
 
 var port = 3000;
 var app = express();
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/', index);
-app.use('/api', tokhang);
+app.use('/api', tokhangs);
 
 app.listen(port, function(){
 	console.log('server port is ' + port);
